@@ -161,7 +161,55 @@
         .search-container {
             flex-grow: 1;
         }
+        /* Layout Fix */
+        .header-content {
+            display: flex;
+            flex-direction: row; /* Aligns logo and search in one line */
+            align-items: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
+        /* CSS Logo Styling */
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 5px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .amazon-a {
+            color: white;
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 0.8;
+            font-family: Arial, sans-serif;
+        }
+
+        .deals-text {
+            color: white;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .amazon-smile {
+            width: 45px;
+            height: 10px;
+            border: solid 3px var(--amazon-orange);
+            border-color: transparent transparent var(--amazon-orange) transparent;
+            border-radius: 0 0 50% 50%;
+            margin-top: -8px;
+        }
+
+        .search-container {
+            flex-grow: 1; /* Makes search bar fill the remaining space */
+        }
         /* Mobile adjustments */
         @media (max-width: 600px) {
             .header-content {
@@ -188,9 +236,12 @@
 
 <div class="header-section">
     <div class="header-content">
-        <div class="logo-container">
-            <img src="logo.png" alt="Amazon Deals Logo" class="header-logo">
+        <div class="logo-wrapper">
+            <span class="amazon-a">a</span>
+            <span class="deals-text">DEALS</span>
+            <div class="amazon-smile"></div>
         </div>
+        
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search across all categories..." onkeyup="filterGrid()">
         </div>
