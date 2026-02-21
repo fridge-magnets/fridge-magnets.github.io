@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Deals</title>
+    <title>DealsStore - Categorized</title>
     <style>
         :root {
             --amazon-navy: #131921;
@@ -19,54 +19,79 @@
             background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            color: #0f1111;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Header & Search */
         .header-section {
             background-color: var(--amazon-navy);
             padding: 10px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            align-items: center;
+            gap: 20px;
         }
-
-        .logo-text { color: white; font-size: 22px; font-weight: bold; text-decoration: none; }
-
+        .logo-text { color: white; font-size: 20px; font-weight: bold; min-width: 120px; }
         #searchInput {
-            width: 100%;
-            padding: 12px 15px;
+            flex-grow: 1;
+            padding: 10px 15px;
             border-radius: 4px;
             border: none;
             font-size: 15px;
-            outline: none;
         }
 
-        .main-container { max-width: 1400px; margin: 20px auto; padding: 0 15px; }
+        /* Layout */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
-        .category-section { margin-bottom: 40px; }
+        /* Sidebar Navigation */
+        .sidebar {
+            padding: 20px;
+            background: white;
+            border-right: 1px solid var(--border-color);
+            height: calc(100vh - 60px);
+            position: sticky;
+            top: 60px;
+        }
+        .sidebar h3 { font-size: 16px; margin-bottom: 15px; }
+        .sidebar a {
+            display: block;
+            color: #444;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .sidebar a:hover { color: #c45500; text-decoration: underline; }
+
+        /* Main Content */
+        .main-content { padding: 20px; }
+        .category-section { margin-bottom: 40px; scroll-margin-top: 80px; }
         .cat-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             margin-bottom: 15px;
-            padding-bottom: 8px;
             border-bottom: 2px solid var(--amazon-light-navy);
+            padding-bottom: 5px;
         }
 
+        /* Grid System */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
         }
-
         .product-card {
             background: white;
             padding: 15px;
@@ -75,21 +100,15 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: 0.2s;
         }
-
         .product-name {
             font-size: 14px;
-            font-weight: 500;
             color: #007185;
             margin-bottom: 15px;
-            height: 3em;
+            font-weight: 500;
+            height: 40px;
             overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
         }
-
         .buy-btn {
             background: var(--amazon-yellow);
             color: #0f1111;
@@ -101,12 +120,13 @@
             border: 1px solid #FCD200;
             font-weight: 500;
         }
-
         .buy-btn:hover { background: var(--amazon-orange); }
+
         .hidden { display: none !important; }
 
-        @media (max-width: 600px) {
-            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        @media (max-width: 800px) {
+            .page-layout { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
         }
     </style>
 </head>
@@ -114,148 +134,72 @@
 
 <div class="header-section">
     <div class="header-content">
-        <div class="logo-text">Amazon Deals</div>
-        <input type="text" id="searchInput" placeholder="Search items..." onkeyup="filterGrid()">
+        <div class="logo-text">DealsStore</div>
+        <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterGrid()">
     </div>
 </div>
 
-<div class="main-container">
+<div class="page-layout">
+    <div class="sidebar">
+        <h3>Categories</h3>
+        <a href="#beauty">Beauty & Care</a>
+        <a href="#electronics">Electronics & Appliances</a>
+        <a href="#home">Home & Furniture</a>
+        <a href="#others">Misc & Others</a>
+    </div>
 
-    <div class="category-section">
-        <div class="cat-title">Our Full Collection</div>
-        <div class="product-grid" id="productGrid">
-            
-            <div class="product-card">
-                <div class="product-name">Parachute Body lotion 400ml</div>
-                <a href="https://www.amazon.in/Parachute-Advansed-Body-Lotion-Touch/dp/B00CBRJ1SM?social_share=cm_sw_r_cso_wa_apin_dp_JSVDY3RNY2Q90W0T28R3&amp;starsLeft=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=fec8e547071e72e196429532e825316e&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
+    <div class="main-content">
+        
+        <div class="category-section" id="beauty">
+            <div class="cat-title">Beauty & Personal Care</div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Parachute Body lotion 400ml</div>
+                    <a href="https://www.amazon.in/Parachute-Advansed-Body-Lotion-Touch/dp/B00CBRJ1SM?social_share=cm_sw_r_cso_wa_apin_dp_JSVDY3RNY2Q90W0T28R3&starsLeft=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=fec8e547071e72e196429532e825316e&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-name">Lakme Sun Expert SPF 50 PA+++</div>
+                    <a href="https://www.amazon.in/s?k=akme+Sun+Expert+SPF+50+PA%2B%2B%2B&i=beauty&crid=YDRY635C7J6U&sprefix=lakme+sun+expert+spf+50+pa%2B%2B%2B%2Cbeauty%2C331&linkCode=ll2&tag=fridgemagne0e-21&linkId=0c75c87a5f979951680a6b5a32997184&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a>
+                </div>
             </div>
-
-            <div class="product-card">
-                <div class="product-name">Atomberg Erica artesian black</div>
-                <a href="https://www.amazon.in/gp/product/B0DZP38ZTK?smid=AXOGFIT0PZZ7G&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=aa8571f275b86091249b23e2a7e3db7d&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Puma bag</div>
-                <a href="https://www.amazon.in/Puma-Womens-Handbag-9138202-Purple/dp/B0D37N3WX6?social_share=cm_sw_r_cso_wa_apin_dp_6F996N8X6V56M6Y8PND1&amp;starsLeft=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=57843eb5432658a5e0220265744ea1d7&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Atomberg Erica artesian brown</div>
-                <a href="https://www.amazon.in/dp/B0DZNX599H?social_share=cm_sw_r_cso_wa_apin_dp_W10K0VRYCWSBNDAVT7P7&amp;starsLeft=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=8572df2929e013be8713f01c34ef5645&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Blinkin Gym Tights</div>
-                <a href="https://www.amazon.in/gp/product/B079JST931?smid=A14UQ4H17XUXK4&amp;psc=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=7a6a43b177ca0d540203a985e50529cc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Rock paper scissors flare gym pants</div>
-                <a href="https://www.amazon.in/gp/product/B0DXVZJBG6?smid=A19N7T0S06MT78&amp;psc=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=e9f4560b0365775535804342207b1d6f&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Lakme Sun Expert SPF 50 PA+++</div>
-                <a href="https://www.amazon.in/s?k=akme+Sun+Expert+SPF+50+PA%2B%2B%2B&amp;i=beauty&amp;crid=YDRY635C7J6U&amp;sprefix=lakme+sun+expert+spf+50+pa%2B%2B%2B%2Cbeauty%2C331&amp;linkCode=ll2&amp;tag=fridgemagne0e-21&amp;linkId=0c75c87a5f979951680a6b5a32997184&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">LG AC 1.5 ton</div>
-                <a href="https://www.amazon.in/dp/B0DQQ4XDBB?social_share=cm_sw_r_cso_wa_apin_dp_TSK1T5KH9VV5X4CFC19Z&amp;previewDoh=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=a068922e2b729b34d8b23d49b107ca2d&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Voltas AC 1.5 ton</div>
-                <a href="https://www.amazon.in/dp/B0CWVDXYX1?social_share=cm_sw_r_cso_wa_apin_dp_YF4WCAAY2293JCQG4S45&amp;previewDoh=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9256deb179e68ce8c3bbb09feeed0f94&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Panasonic AC</div>
-                <a href="https://www.amazon.in/dp/B0DSVT7YSQ?social_share=cm_sw_r_cso_wa_apin_dp_FVHGRGHS5W22XW3E217S&amp;previewDoh=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=a9399f1853a526fbd1515fe25c783104&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Jewel for red saree</div>
-                <a href="https://www.amazon.in/dp/B01FSTN1BW?social_share=cm_sw_r_cso_wa_apin_dp_5X3D85237S2J826A69S5&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=e97b1a646c827ea80f4f9f74051a89c3&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Gehney jewelry set AD zircon</div>
-                <a href="https://www.amazon.in/gp/product/B0DTJ8ZZJV?smid=A265E68N6L1K3C&amp;psc=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9053303d8d73b0a79da53e4811f582cc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Arno 25 liter geyser</div>
-                <a href="https://www.amazon.in/dp/B08GSQNR61?social_share=cm_sw_r_cso_wa_apin_dp_V1SQ6KC1NZF0Y8A7YZ90&amp;titleSource=true&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=3170ed578dbb0b7885b2ce1746a864fa&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Arno 15 liter geyser</div>
-                <a href="https://www.amazon.in/Water-Heaters/b?ie=UTF8&amp;node=2083425031&amp;linkCode=ll2&amp;tag=fridgemagne0e-21&amp;linkId=18173ed874e56b4beeac24841b6fbb97&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Other geyser option</div>
-                <a href="https://www.amazon.in/dp/B0B9RN5X8B?social_share=cm_sw_r_cso_wa_apin_dp_AQMS2B7S8QP0AYBS9JEA&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9b606814dfebc2988cc2921d649282dc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Wakefit 3 seater sofa</div>
-                <a href="https://www.amazon.in/Wakefit-Warranty-Seater-Living-Couch/dp/B0DK8S2P13?social_share=cm_sw_r_cso_wa_apin_dp_B3S0T08Y3E6S8K06972N&amp;starsLeft=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=5a004ef3a1b553e160e1ef3805eb3e85&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Vu masterpiece 55" Armani TV</div>
-                <a href="https://www.amazon.in/Vu-inches-Masterpiece-55MASTERPIECE-Armani/dp/B0DH8984MM?social_share=cm_sw_r_cso_wa_apin_dp_C25T4YGRH3Y5WPCYJ8P2&amp;starsLeft=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=7227d8122d645e751f67fec7cc021370&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Mi wireless camera i2</div>
-                <a href="https://www.amazon.in/MI-Wireless-Security-Detection-Enhanced/dp/B0B51WPT24?social_share=cm_sw_r_cso_wa_apin_dp_T8T9A5KYYV56N0N8P3G6&amp;starsLeft=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=87779d712ce625394206584617415170&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">iPad stylus pencil</div>
-                <a href="https://www.amazon.in/DIGIROOT-Pencil%E3%80%90NO-1-Charge-Rejection-2018-2024/dp/B0CP914DZD?social_share=cm_sw_r_cso_wa_apin_dp_4S99G3SNY2Q11W9T2S3R&amp;starsLeft=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=7766f6b54124c6930064372e811c9d67&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Silver bar 250g BR</div>
-                <a href="https://www.amazon.in/Bangalore-Refinery-Purity-Silver-Gram/dp/B019GZJIBQ?social_share=cm_sw_r_cso_wa_apin_dp_4N99Q6VNY2V81W0T4G7A&amp;starsLeft=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=1a66e6c53e24c6930064372e811c9d67&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Motor (V-Guard)</div>
-                <a href="https://www.amazon.in/dp/B08GCKJBPF?social_share=cm_sw_r_cso_wa_apin_dp_1SVDT3RNY2Q90W0T28R3&amp;starsLeft=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=6a6e2e578c7c91d8e1329c1746f864fa&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Another Motor</div>
-                <a href="https://www.amazon.in/dp/B08SJZ4V78?social_share=cm_sw_r_cso_wa_apin_dp_V1SQ9KC1NZF0Y8A7YZ90&amp;starsLeft=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9b606814dfebc2988cc2921d649282dc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">JK Tyre 215/60 R17</div>
-                <a href="https://www.amazon.in/JK-Tyre-215-Tubeless-Pack/dp/B0D81D1HT1?social_share=cm_sw_r_cso_wa_apin_dp_4N99W6VNY2V81W0T4G7A&amp;starsLeft=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=7a6a43b177ca0d540203a985e50529cc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Phone cover samsung M35</div>
-                <a href="https://www.amazon.in/dp/B0D9M3LNNJ?social_share=cm_sw_r_cso_wa_apin_dp_AQMS2B7S8QP0AYBS9JEA&amp;starsLeft=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9b606814dfebc2988cc2921d649282dc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Wipro color changing light</div>
-                <a href="https://www.amazon.in/Garnet-Colour-Changing-Lighting-Coolwhite/dp/B01LXP7RAR?social_share=cm_sw_r_cso_wa_apin_dp_AQMS2B7S8QP0AYBS9JEA&amp;starsLeft=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9b606814dfebc2988cc2921d649282dc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-name">Alarm with remote for elders</div>
-                <a href="https://www.amazon.in/Panasonic-Waterproof-Operating-Melodies-22720/dp/B0824CY5C2?social_share=cm_sw_r_cso_wa_apin_dp_AQMS2B7S8QP0AYBS9JEA&amp;starsLeft=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9b606814dfebc2988cc2921d649282dc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-
         </div>
+
+        <div class="category-section" id="electronics">
+            <div class="cat-title">Electronics & Large Appliances</div>
+            <div class="product-grid">
+                <div class="product-card"><div class="product-name">LG AC 1.5 ton</div><a href="https://www.amazon.in/dp/B0DQQ4XDBB?social_share=cm_sw_r_cso_wa_apin_dp_TSK1T5KH9VV5X4CFC19Z&previewDoh=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=a068922e2b729b34d8b23d49b107ca2d&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Voltas AC 1.5 ton</div><a href="https://www.amazon.in/dp/B0CWVDXYX1?social_share=cm_sw_r_cso_wa_apin_dp_YF4WCAAY2293JCQG4S45&previewDoh=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=9256deb179e68ce8c3bbb09feeed0f94&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Panasonic AC</div><a href="https://www.amazon.in/dp/B0DSVT7YSQ?social_share=cm_sw_r_cso_wa_apin_dp_FVHGRGHS5W22XW3E217S&previewDoh=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=a9399f1853a526fbd1515fe25c783104&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Vu masterpiece 55" Armani TV</div><a href="https://www.amazon.in/Vu-inches-Masterpiece-55MASTERPIECE-Armani/dp/B0DH8984MM?social_share=cm_sw_r_cso_wa_apin_dp_C25T4YGRH3Y5WPCYJ8P2&starsLeft=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=7227d8122d645e751f67fec7cc021370&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Mi wireless camera i2</div><a href="https://www.amazon.in/MI-Wireless-Security-Detection-Enhanced/dp/B0B51WPT24?social_share=cm_sw_r_cso_wa_apin_dp_T8T9A5KYYV56N0N8P3G6&starsLeft=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=87779d712ce625394206584617415170&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">iPad stylus pencil</div><a href="https://www.amazon.in/DIGIROOT-Pencil%E3%80%90NO-1-Charge-Rejection-2018-2024/dp/B0CP914DZD?social_share=cm_sw_r_cso_wa_apin_dp_4S99G3SNY2Q11W9T2S3R&starsLeft=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=7766f6b54124c6930064372e811c9d67&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+            </div>
+        </div>
+
+        <div class="category-section" id="home">
+            <div class="cat-title">Home, Furniture & Fans</div>
+            <div class="product-grid">
+                <div class="product-card"><div class="product-name">Atomberg Erica black</div><a href="https://www.amazon.in/gp/product/B0DZP38ZTK?smid=AXOGFIT0PZZ7G&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=aa8571f275b86091249b23e2a7e3db7d&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Atomberg Erica brown</div><a href="https://www.amazon.in/dp/B0DZNX599H?social_share=cm_sw_r_cso_wa_apin_dp_W10K0VRYCWSBNDAVT7P7&starsLeft=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=8572df2929e013be8713f01c34ef5645&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Arno 25L Geyser</div><a href="https://www.amazon.in/dp/B08GSQNR61?social_share=cm_sw_r_cso_wa_apin_dp_V1SQ6KC1NZF0Y8A7YZ90&titleSource=true&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=3170ed578dbb0b7885b2ce1746a864fa&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Wakefit 3 Seater Sofa</div><a href="https://www.amazon.in/Wakefit-Warranty-Seater-Living-Couch/dp/B0DK8S2P13?social_share=cm_sw_r_cso_wa_apin_dp_B3S0T08Y3E6S8K06972N&starsLeft=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=5a004ef3a1b553e160e1ef3805eb3e85&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">V-Guard Motor</div><a href="https://www.amazon.in/dp/B08GCKJBPF?social_share=cm_sw_r_cso_wa_apin_dp_1SVDT3RNY2Q90W0T28R3&starsLeft=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=6a6e2e578c7c91d8e1329c1746f864fa&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Wipro Color Light</div><a href="https://www.amazon.in/Garnet-Colour-Changing-Lighting-Coolwhite/dp/B01LXP7RAR?social_share=cm_sw_r_cso_wa_apin_dp_AQMS2B7S8QP0AYBS9JEA&starsLeft=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=9b606814dfebc2988cc2921d649282dc&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+            </div>
+        </div>
+
+        <div class="category-section" id="others">
+            <div class="cat-title">Fashion, Automotive & Others</div>
+            <div class="product-grid">
+                <div class="product-card"><div class="product-name">Puma Handbag</div><a href="https://www.amazon.in/Puma-Womens-Handbag-9138202-Purple/dp/B0D37N3WX6?social_share=cm_sw_r_cso_wa_apin_dp_6F996N8X6V56M6Y8PND1&starsLeft=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=57843eb5432658a5e0220265744ea1d7&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Blinkin Gym Tights</div><a href="https://www.amazon.in/gp/product/B079JST931?smid=A14UQ4H17XUXK4&psc=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=7a6a43b177ca0d540203a985e50529cc&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Gehney Jewelry Set</div><a href="https://www.amazon.in/gp/product/B0DTJ8ZZJV?smid=A265E68N6L1K3C&psc=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=9053303d8d73b0a79da53e4811f582cc&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Silver Bar 250g</div><a href="https://www.amazon.in/Bangalore-Refinery-Purity-Silver-Gram/dp/B019GZJIBQ?social_share=cm_sw_r_cso_wa_apin_dp_4N99Q6VNY2V81W0T4G7A&starsLeft=1&th=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=1a66e6c53e24c6930064372e811c9d67&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">JK Tyre 215/60 R17</div><a href="https://www.amazon.in/JK-Tyre-215-Tubeless-Pack/dp/B0D81D1HT1?social_share=cm_sw_r_cso_wa_apin_dp_4N99W6VNY2V81W0T4G7A&starsLeft=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=7a6a43b177ca0d540203a985e50529cc&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+                <div class="product-card"><div class="product-name">Elder Alert Alarm</div><a href="https://www.amazon.in/Panasonic-Waterproof-Operating-Melodies-22720/dp/B0824CY5C2?social_share=cm_sw_r_cso_wa_apin_dp_AQMS2B7S8QP0AYBS9JEA&starsLeft=1&linkCode=ll1&tag=fridgemagne0e-21&linkId=9b606814dfebc2988cc2921d649282dc&language=en_IN&ref_=as_li_ss_tl" target="_blank" class="buy-btn">View Deal</a></div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -263,10 +207,17 @@
     function filterGrid() {
         const query = document.getElementById('searchInput').value.toLowerCase();
         const cards = document.querySelectorAll('.product-card');
+        const sections = document.querySelectorAll('.category-section');
 
         cards.forEach(card => {
             const name = card.querySelector('.product-name').innerText.toLowerCase();
             card.classList.toggle('hidden', !name.includes(query));
+        });
+
+        // Hide empty sections during search
+        sections.forEach(sec => {
+            const visibleCards = sec.querySelectorAll('.product-card:not(.hidden)');
+            sec.classList.toggle('hidden', visibleCards.length === 0);
         });
     }
 </script>
