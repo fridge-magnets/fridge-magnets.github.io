@@ -136,6 +136,42 @@
             border: 1px solid #FCD200;
             font-weight: 500;
         }
+        /* Update header layout to align logo and search horizontally */
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row; /* Changed from column to row */
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Logo specific styling */
+        .header-logo {
+            height: 50px; /* Adjust height as needed */
+            width: auto;
+            display: block;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+        }
+
+        /* Ensure search bar takes remaining space */
+        .search-container {
+            flex-grow: 1;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column; /* Stack on small screens */
+                gap: 10px;
+            }
+            .header-logo {
+                height: 40px;
+            }
+        }
 
         .buy-btn:hover { background: var(--amazon-orange); }
 
@@ -152,7 +188,9 @@
 
 <div class="header-section">
     <div class="header-content">
-        <div class="logo-text">Amazon Deals</div>
+        <div class="logo-container">
+            <img src="image.png" alt="Amazon Deals Logo" class="header-logo">
+        </div>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search across all categories..." onkeyup="filterGrid()">
         </div>
