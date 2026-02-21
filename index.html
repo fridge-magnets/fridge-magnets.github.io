@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Product Deals</title>
+    <style>
+        :root {
+            --amazon-navy: #232f3e;
+            --amazon-yellow: #ffd814;
+            --amazon-orange: #f7ca00;
+            --bg-color: #f4f7f9;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .deal-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--amazon-navy);
+            margin-bottom: 30px;
+        }
+
+        .deal-category { 
+            margin-bottom: 30px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            background: white;
+        }
+
+        .cat-title { 
+            background: var(--amazon-navy); 
+            color: white; 
+            padding: 15px 20px; 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .deal-row { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 14px 20px; 
+            border-bottom: 1px solid #eee; 
+            transition: background 0.2s; 
+        }
+
+        .deal-row:last-child { border-bottom: none; }
+        .deal-row:hover { background: #fdfdfd; }
+
+        .product-name { 
+            flex-grow: 1; 
+            font-size: 16px; 
+            padding-right: 15px; 
+            color: #222; 
+            font-weight: 500;
+        }
+
+        .buy-btn { 
+            background: var(--amazon-yellow); 
+            color: #0f1111; 
+            text-decoration: none; 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            border: 1px solid #fcd200; 
+            white-space: nowrap; 
+            transition: all 0.2s ease;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .buy-btn:hover { 
+            background: var(--amazon-orange); 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .deal-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .buy-btn { width: 100%; box-sizing: border-box; }
+            .product-name { padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="deal-container">
+    <h1>Today's Best Deals</h1>
+
+    <div class="deal-category">
+        <div class="cat-title">🏠 Home, Cooling & Appliances</div>
+        <div class="deal-row"><span class="product-name">LG AC 1.5 Ton</span><a href="https://www.amazon.in/dp/B0DQQ4XDBB?social_share=cm_sw_r_cso_wa_apin_dp_TSK1T5KH9VV5X4CFC19Z&amp;previewDoh=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=a068922e2b729b34d8b23d49b107ca2d&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Voltas AC 1.5 Ton</span><a href="https://www.amazon.in/dp/B0CWVDXYX1?social_share=cm_sw_r_cso_wa_apin_dp_YF4WCAAY2293JCQG4S45&amp;previewDoh=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9256deb179e68ce8c3bbb09feeed0f94&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Panasonic AC</span><a href="https://www.amazon.in/dp/B0DSVT7YSQ?social_share=cm_sw_r_cso_wa_apin_dp_FVHGRGHS5W22XW3E217S&amp;previewDoh=1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=a9399f1853a526fbd1515fe25c783104&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Arno 25 Liter Geyser</span><a href="https://www.amazon.in/dp/B08GSQNR61?social_share=cm_sw_r_cso_wa_apin_dp_V1SQ6KC1NZF0Y8A7YZ90&amp;titleSource=true&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=3170ed578dbb0b7885b2ce1746a864fa&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Arno 15 Liter Geyser</span><a href="https://www.amazon.in/Water-Heaters/b?ie=UTF8&amp;node=2083425031&amp;linkCode=ll2&amp;tag=fridgemagne0e-21&amp;linkId=18173ed874e56b4beeac24841b6fbb97&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Other Geyser Option</span><a href="https://www.amazon.in/dp/B0B9RN5X8B?social_share=cm_sw_r_cso_wa_apin_dp_AQMS2B7S8QP0AYBS9JEA&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=9b606814dfebc2988cc2921d649282dc&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Atomberg Erica (Black)</span><a href="https://www.amazon.in/gp/product/B0DZP38ZTK?smid=AXOGFIT0PZZ7G&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=aa8571f275b86091249b23e2a7e3db7d&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Atomberg Erica (Brown)</span><a href="https://www.amazon.in/gp/product/B0DZNZNKGZ?smid=AXOGFIT0PZZ7G&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=3671bc0259a7850b7f14e66ebbd75897&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Orient Light</span><a href="https://www.amazon.in/gp/product/B0D4B5HJHR?smid=A2AL6IVND0I91F&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=b0820a8652ec26187e02ce76b2868de3&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Wipro Color Changing Light</span><a href="https://www.amazon.in/Garnet-Colour-Changing-Lighting-Coolwhite/dp/B01LXP7RAR?crid=1K9F82HTUE4SD&amp;dib=eyJ2IjoiMSJ9.kNeWTWedSY1vPRidzi4TfW5dX3CvnKJUKQxZS2HTqUmww_7yktkUne99tvyuhaIByaHAvrOobsVJtsBVnzmspLlAWG5Ib3wg_maj03fC0RJcvcEUR5YekzXaMj39InLWyyjF5d5ahOA9bkn2yv4SUlosbiy0mxpUyUsm_Wec4psMzvVBVDGaC1wclNTZBGFItctFW4-k0-Z1oM3594wFtx-qAdNJWlxKORFaBN1reP5qRjwKuwwl4wUfzYOCPcdpP9C2MdSB77P9L69teH2Oz_SUqa2ucQHn9qQOIk6RAzw.W_BoPchSt_MDpMYpokGQ7ogQ-8l3aHSBOK4xBr3W0wI&amp;dib_tag=se&amp;keywords=3%2Bin%2B1%2Bled%2Btube%2Blight&amp;qid=1760686425&amp;sprefix=%2Caps%2C258&amp;sr=8-5&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=ab2fb29096eee5b8d1ca26f02ec86b88&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Activate Orient</span><a href="https://www.amazon.in/gp/product/B0C74N67P6?smid=A13N6F3B5ADYNE&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=b1dc4f27787787f63e2b680a34c9f876&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Generic Light</span><a href="https://www.amazon.in/dp/B0DX7BZFJ5?social_share=cm_sw_r_cso_wa_apin_dp_DRAEZ02923K937CDTEEY&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=e8df056aa39c08d50925a6affd489605&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+    </div>
+
+    <div class="deal-category">
+        <div class="cat-title">📺 TV & Technology</div>
+        <div class="deal-row"><span class="product-name">Vu Masterpiece 55" Armani TV</span><a href="https://www.amazon.in/Vu-inches-Masterpiece-55MASTERPIECE-Armani/dp/B0DH8984MM?crid=1ZCQAI1I9K624&amp;dib=eyJ2IjoiMSJ9.Nka5DvfMvA95xQUOvjB_ECYqMBlcdsu60GByDY3uRRPl1UT4tlY6l26N87ymRTW96uHJkzKqMOgr8A_Sg9M-RZwl1vb30ePORiNnP6ENns3x_vuAQSpFS32qVQmdvJa3nB-I-ciHpVtjhmwmZ7JWhXnfGL1HfhUL58hf8A9Mv-DTrK3mBvuqsJsqeFaHbhyVIknaICsoV8QjhnhF-0MhsUOvkEvm_gt3FK__TFCEBrQ.2sm5GjTw4cZK0xc-5dv12DefoS2r2q0mZFcwz-pC7FY&amp;dib_tag=se&amp;keywords=vu%2Bmasterpiece%2B55%2B%2Binch%2Btv&amp;qid=1754815399&amp;sprefix=Masterpiece%2Bvu%2Caps%2C319&amp;sr=8-3&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=5f9e8395558b20d6938ef166f6952420&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Vu 55 Inch Vibe</span><a href="https://www.amazon.in/dp/B0FBS93Y6J?social_share=cm_sw_r_cso_cp_apin_dp_GRZBSDTWADZ1XC11SPGJ_1&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=54a68fd09f29d7569e2cd21ccbd70300&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Mi Wireless Camera i2</span><a href="https://www.amazon.in/MI-Wireless-Security-Detection-Enhanced/dp/B0B51WPT24?&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=8337bdd35a80db52adbef5c0965c98e1&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">iPad Stylus Pencil</span><a href="https://www.amazon.in/DIGIROOT-Pencil%E3%80%90NO-1-Charge-Rejection-2018-2024/dp/B0CP914DZD?crid=1C32N67X0CO69&amp;dib=eyJ2IjoiMSJ9.q3Mir94PGkyXV1c5S8abt_SlWADdYiprxsvgGgm1Q86yGTAlLIiFw7qJiLjbFBo8s1uE25A-JsJRz3RoI_1jk5wDsNQYHOkRFpclc7ImVVz9yTvJS2LK2oiaozJY7xuv3fv8T7imwvLrBzoG9ha4eHZV_g6NvItjvxr49OOeLxSOCg8flywmsfYj5aZS-ckIRIMrS1PGMo-Q6whbyiSweSJ7rIJp3mj9fLerjCSV0wc.SzfJBPn9pxCqs3yg1UEUYTdeSW92IkPrC8AJmU4jATU&amp;dib_tag=se&amp;keywords=ipad%2Bpencil%2B11th%2Bgeneration%2Bapple&amp;qid=1749987841&amp;sprefix=iPad%2Bpencil%2B%2Caps%2C337&amp;sr=8-3&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=67fd1921576aa4b7c77932e9de912e5d&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Phone Cover Samsung M35</span><a href="https://www.amazon.in/dp/B0D9M3LNNJ?social_share=cm_sw_r_cso_wa_apin_dp_KGCMQR2H3XJA1H1GQYKV&amp;previewDoh=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=99ed022fee3d4b290ab134cd1072857f&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Generic Phone Cover</span><a href="https://www.amazon.in/dp/B0CZS15YG2?social_share=cm_sw_r_cso_cp_apin_dp_E9X5TWZ5PBT8AG7BTS8G&amp;titleSource=true&amp;th=1&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=652d2f54a971f409541264ec3f2efd6c&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Alarm with Remote (Elderly Care)</span><a href="https://www.amazon.in/Panasonic-Waterproof-Operating-Melodies-22720/dp/B0824CY5C2?crid=14SQBCWDE158G&amp;dib=eyJ2IjoiMSJ9.wFIOaneuR-Mw9ncMxWOA6j1ztp_-6nTkcVQYaRBJXB90tkcSGGAGLI29BMt_8kDsjX8dOJ2RufASNQToD_rlBjPTQabIl1eXi05TG62tPX1QqVC08GMaAJUIbdsXLx0WS5PPGxp0ToDC72A6ZCAm7vDsXB5MyYB1kpCHCWpts_5_kiiFWTg1WUcgcFk5KIMhN8i9x7wSfszpHvUpLNiwG1VofUH6f-6DTPaeR3WutekIQwdKfe7atrLBe_vkHgkm0ITtL97wiwfjwPmH4Ng-kv2_Xkleiz9JyjsuItLOxOg._oCQzsmyu7P-WRyTtV1AdCvV1KKFoGXH9Hfko1yMfhM&amp;dib_tag=se&amp;keywords=Alarm+door+for+elderly+patient&amp;qid=1751551032&amp;sprefix=alarm+door+for+elderly+patient%2Caps%2C340&amp;sr=8-10&amp;linkCode=ll1&amp;tag=fridgemagne0e-21&amp;linkId=6522547ca3bb2337f519bcf53cb9fcf7&amp;language=en_IN&amp;ref_=as_li_ss_tl" target="_blank" class="buy-btn">Check Price</a></div>
+    </div>
+
+    <div class="deal-category">
+        <div class="cat-title">👗 Fashion & Beauty</div>
+        <div class="deal-row"><span class="product-name">Parachute Body Lotion 400ml</span><a href="https://www.amazon.in/Parachute-Advansed-Body-Lotion-Touch/dp/B00CBRJ1SM?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Puma Women's Handbag</span><a href="https://www.amazon.in/Puma-Womens-Handbag-9138202-Purple/dp/B0D37N3WX6?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Crocs for Women</span><a href="https://www.amazon.in/dp/B0CR824G58?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Marriage Slipper</span><a href="https://www.amazon.in/dp/B0BSCCMWQT?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Lakme Sunscreen Expert</span><a href="https://www.amazon.in/s?k=akme+Sun+Expert+SPF+50+PA%2B%2B%2B&tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Jockey Innerwear</span><a href="https://www.amazon.in/womens-panties/b?node=1968474031&tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Jockey Top</span><a href="https://www.amazon.in/dp/B09J16955M?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Passport Cover (Pink/Personalized)</span><a href="https://www.amazon.in/Mekhush-Personalized-Printed-Passport-Customised/dp/B0CXXBN4GV?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Blinkin Gym Tights</span><a href="https://www.amazon.in/gp/product/B079JST931?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Rock Paper Scissors Flare Gym Pants</span><a href="https://www.amazon.in/gp/product/B0DXVZJBG6?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Imperative High Waist Tights</span><a href="https://www.amazon.in/gp/product/B0CJYNFJQD?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Mehrang Yoga Pants</span><a href="https://www.amazon.in/gp/product/B0C956QSMF?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+    </div>
+
+    <div class="deal-category">
+        <div class="cat-title">💍 Jewelry Collections</div>
+        <div class="deal-row"><span class="product-name">Jewel for Red Saree</span><a href="https://www.amazon.in/dp/B01FSTN1BW?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Set</a></div>
+        <div class="deal-row"><span class="product-name">Choker (Silver Color)</span><a href="https://www.amazon.in/gp/product/B097TFYK8B?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Set</a></div>
+        <div class="deal-row"><span class="product-name">Gehney Jewelry Set (AD Zircon)</span><a href="https://www.amazon.in/gp/product/B0DTJ8ZZJV?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Set</a></div>
+        <div class="deal-row"><span class="product-name">GEHNEY JN12 (American Diamond)</span><a href="https://www.amazon.in/gp/product/B0CND7WNJR?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Set</a></div>
+        <div class="deal-row"><span class="product-name">Gehney JN13 (Kundan Choker)</span><a href="https://www.amazon.in/gp/product/B0DKQS99CY?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Set</a></div>
+        <div class="deal-row"><span class="product-name">Silver Bar 250g (Purity Silver)</span><a href="https://www.amazon.in/Bangalore-Refinery-Purity-Silver-Gram/dp/B019GZJIBQ?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Silver</a></div>
+    </div>
+
+    <div class="deal-category">
+        <div class="cat-title">🪥 Grooming & Wellness</div>
+        <div class="deal-row"><span class="product-name">Oral-B iO3 Electric Brush</span><a href="https://www.amazon.in/Oral-B-Ultimate-Electric-Toothbrush-Adults/dp/B0C1H5CFSX?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Perfora Oscillating Toothbrush</span><a href="https://www.amazon.in/Perfora-Oscillating-Toothbrush-Rechargeable-Limitless/dp/B0DJMKC3KD?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Oral-B Power Toothbrushes</span><a href="https://www.amazon.in/Power-Toothbrushes/b?node=1374638031&tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Trimmer</span><a href="https://www.amazon.in/dp/B0C7VV7B8Y?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Hair Dryer</span><a href="https://www.amazon.in/dp/B0CW9J2RCL?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Vitamin D 60k Capsules</span><a href="https://www.amazon.in/dp/B09B7DFNDP?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">Collagen Tablets</span><a href="https://www.amazon.in/s?k=carbamide+forte&tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+        <div class="deal-row"><span class="product-name">MuscleBlaze Protein (Mango)</span><a href="https://www.amazon.in/MuscleBlaze-Biozyme-Performance-Certified-servings/dp/B093WQSRHT?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Buy Now</a></div>
+    </div>
+
+    <div class="deal-category">
+        <div class="cat-title">🍳 Kitchen & Home Utility</div>
+        <div class="deal-row"><span class="product-name">Face Shop Non-Stick Pan</span><a href="https://www.amazon.in/dp/B01L2CI2DQ?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Versatile Cooking Essential</span><a href="https://www.amazon.in/gp/product/B0FHQ9DKW2?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Kitchen Apron</span><a href="https://www.amazon.in/dp/B0DK2CW8KP?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Oven Mittens / Gloves</span><a href="https://www.amazon.in/Oven-Gloves/b?node=1380091031&tag=fridgemagne0e-21" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Slipper Stand</span><a href="https://www.amazon.in/dp/B0DLVF925Q?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Cover for Plates</span><a href="https://www.amazon.in/dp/B07L5DDYN1?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Check Price</a></div>
+        <div class="deal-row"><span class="product-name">Ribbon for Plates</span><a href="https://www.amazon.in/dp/B09CNP46JG?tag=fridgemagne0e-21" target="_blank" class="buy-btn">Check Price</a></div>
+    </div>
+
+    <div class="deal-category">
+        <div class="cat-title">🛋️ Sports, Furniture & Auto</div>
+        <div class="deal-row"><span class="product-name">Wakefit 3-Seater Sofa</span><a href="https://www.amazon.in/Wakefit-Warranty-Seater-Living-Couch/dp/B0DK8S2P13?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Royaloak Mily Fabric Sofa</span><a href="#" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">TV Table (White)</span><a href="https://www.amazon.in/gp/product/B0BT9NJRYG?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">TV Table (Standard)</span><a href="https://www.amazon.in/dp/B08J25KBY7?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Li-Ning Ignite Carbon Racket</span><a href="https://www.amazon.in/dp/B009T1NKBC?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Badminton Shoes (Nivia)</span><a href="https://www.amazon.in/Nivia-Badminton-Synthetic-Leather-Volleyball/dp/B0C8NM5VNX?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">JK Tyre 215/60 R17</span><a href="https://www.amazon.in/JK-Tyre-215-Tubeless-Pack/dp/B0D81D1HT1?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Laptop Bag</span><a href="https://www.amazon.in/dp/B0DM63KXPS?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Motor (Type 1)</span><a href="https://www.amazon.in/dp/B08GCKJBPF?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Another Motor</span><a href="https://www.amazon.in/dp/B08SJZ4V78?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">6-Inch Black Accessory</span><a href="https://www.amazon.in/gp/product/B0999HT3HV?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">6-Inch Brown Accessory</span><a href="https://www.amazon.in/gp/product/B0999G7G9H?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Sunflower Product</span><a href="https://www.amazon.in/dp/B0DS6B154G?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+        <div class="deal-row"><span class="product-name">Hair Clips</span><a href="https://www.amazon.in/dp/B09MWGHRM3?tag=fridgemagne0e-21" target="_blank" class="buy-btn">View Product</a></div>
+    </div>
+
+</div>
+
+</body>
+</html>
